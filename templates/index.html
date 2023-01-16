@@ -1,0 +1,23 @@
+<form action="/" method="post" enctype="multipart/form-data">
+  <input type="file" name="file">
+  <input type="submit" value="Import">
+</form>
+<table>
+  <thead>
+      <tr>
+          <th>Contacts</th>
+          <th>Messages</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for i in range(contacts|length) %}
+      <tr>
+          <td><input type="text" name="contacts" value="{{ contacts[i] }}"></td>
+          <td><textarea name="messages">{{ messages[i] }}</textarea><td>
+          </tr>
+      {% endfor %}
+  </tbody>
+</table>
+<form action="/send" method="post">
+  <input type="submit" value="Send">
+</form>
